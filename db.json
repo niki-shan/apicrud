@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "title": "json",
+      "content": "typescript",
+      "id": 1
+    },
+    {
+      "title": "java",
+      "content": "javascript",
+      "id": 2
+    }
+  ]
+}

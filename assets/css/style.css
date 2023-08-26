@@ -1,0 +1,20 @@
+body{
+    background-color:purple;
+    
+}
+
+
+
+section{
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.card{
+    background-color: darkblue;
+    color: gold;
+}
+.card-body{
+    background-color: rgb(15, 15, 133);
+}
