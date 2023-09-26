@@ -10,7 +10,8 @@ const updatecontrol=document.getElementById("update")
 const submit=document.getElementById("submit")
 
 const baseurl = "http://localhost:3000"
-const posturl=  "http://localhost:3000/posts"
+// const posturl=  "http://localhost:3000/posts"
+const posturl=`https://fir-24bc6-default-rtdb.asia-southeast1.firebasedatabase.app/`
 
 
 const templating=(arr)=>{
@@ -52,6 +53,8 @@ const onedit=(ele)=>{
         title : titlecontrol.value,
         content : contentcontrol.value
     }
+      
+
 
     makeApicall("PATCH",updateurl,JSON.stringify(updateobj))
 
@@ -64,7 +67,23 @@ const onedit=(ele)=>{
      let deleteid=ele.closest(".card").id;
      let deleturl=`${posturl}/${deleteid}`
      
+     
      makeApicall("DELETE", deleturl)
+      
+Swal.fire({
+    title: 'Do you want to save the changes?',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Save',
+    denyButtonText: `Don't save`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      Swal.fire('Saved!', '', 'success')
+    } else if (result.isDenied) {
+      Swal.fire('Changes are not saved', '', 'info')
+    }
+  })
  }
 
 
@@ -122,3 +141,4 @@ const onAdd=(eve)=>{
 
 mainform.addEventListener("submit", onAdd);
 updatecontrol.addEventListener("click",onUpdate)
+
